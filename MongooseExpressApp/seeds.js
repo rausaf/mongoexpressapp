@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Product = require("./models/product");
 
 mongoose
-  .connect("mongodb://localhost:27017/farmStand")
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("MONGO CONNECTION OPEN!!!");
   })
