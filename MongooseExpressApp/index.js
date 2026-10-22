@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
@@ -7,9 +8,7 @@ const methodOverride = require("method-override");
 const Product = require("./models/product");
 
 mongoose
-  .connect(
-    "mongodb+srv://syedramisausaf_db_user:JQCN2Oj0IgFjsvwx@cluster0.ix62gqo.mongodb.net/",
-  )
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     console.log("MONGO CONNECTION OPEN!!!");
   })
